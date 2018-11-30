@@ -9,7 +9,7 @@
         <p><strong>{{item.word}}</strong></p>
       </li>
     </ul>
-    <p>This API is attributed to sunrise-sunset.org located at <a href= "https://sunrise-sunset.org/api"</a></p>
+    <p>This API is attributed to sunrise-sunset.org located at <a href="https://sunrise-sunset.org/api">Website</a></p>
   </div>
 </template>
 
@@ -20,8 +20,8 @@ export default {
   data () {
     return {
       results: null,
-      errors: [],
-      query: '',
+      lat: "47.606209",
+      lng: "-122.332069"
     }
   },
   methods: {
@@ -29,15 +29,15 @@ export default {
       console.log("hello")
       axios.get('https://api.sunrise-sunset.org/json', {
         params: {
-          lat: '',
-          lng: ''
+          lat: this.lat,
+          lng: this.lng
         }
       })
       .then(response => {
-        this.results = response.data.results;
+        this.results = response.data;
       })
-      .catch(error => {
-        this.errors.push(error);
+      .catch(function (error) {
+    console.log(error);
       });
     }
   }
@@ -85,8 +85,5 @@ ul.results {
   min-height: 100px;
   color: #fff;
   background: rgba(0,0,0,0.7);
-}
-ul.errors {
-  list-style-type: none;
 }
 </style>
