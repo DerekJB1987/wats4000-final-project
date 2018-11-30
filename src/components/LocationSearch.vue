@@ -5,9 +5,9 @@
         <p>Enter a latitude: <input type="text" v-model="lat" placeholder="47.606209"> and longitude: <input type="text" v-model="lng" placeholder="-122.332069"> to find your sunrise and sunset times. <button type="submit">Search</button></p>
     </form>
     <ul v-if="results" class="results">
-      <li class="item">
-        <p><strong>sunrise</strong></p>
-        <p>{{results.sunrise}}</p>
+      <li v-for="key in keys" class="item">
+        <p><strong>{{key}}</strong></p>
+        <p>{{results[key]}}</p>
       </li>
     </ul>
     <p>This API is attributed to sunrise-sunset.org located at <a href="https://sunrise-sunset.org/api">Website</a></p>
@@ -22,7 +22,8 @@ export default {
     return {
       results: null,
       lat: "47.606209",
-      lng: "-122.332069"
+      lng: "-122.332069",
+      keys: []
     }
   },
   methods: {
@@ -36,6 +37,7 @@ export default {
       })
       .then(response => {
         this.results = response.data.results;
+        this.keys = Object.keys(this.results)
       })
       .catch(function (error) {
     console.log(error);
