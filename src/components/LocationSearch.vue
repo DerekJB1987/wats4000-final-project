@@ -9,7 +9,7 @@
         <p><strong>{{item.word}}</strong></p>
       </li>
     </ul>
-    <p>This API is attributed to sunrise-sunset.org located at https://sunrise-sunset.org/api</p>
+    <p>This API is attributed to sunrise-sunset.org located at <a href= "https://sunrise-sunset.org/api"</a></p>
   </div>
 </template>
 
@@ -43,8 +43,6 @@ export default {
   }
 }
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .rhymesaurus {
