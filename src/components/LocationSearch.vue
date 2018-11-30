@@ -4,9 +4,10 @@
     <form v-on:submit.prevent="getLocation">
         <p>Enter a latitude: <input type="text" v-model="lat" placeholder="47.606209"> and longitude: <input type="text" v-model="lng" placeholder="-122.332069"> to find your sunrise and sunset times. <button type="submit">Search</button></p>
     </form>
-      <ul v-if="results && results.length > 0" class="results">
-      <li v-for="item of results" class="item">
-        <p><strong>{{item.word}}</strong></p>
+    <ul v-if="results" class="results">
+      <li class="item">
+        <p><strong>sunrise</strong></p>
+        <p>{{results.sunrise}}</p>
       </li>
     </ul>
     <p>This API is attributed to sunrise-sunset.org located at <a href="https://sunrise-sunset.org/api">Website</a></p>
@@ -34,7 +35,7 @@ export default {
         }
       })
       .then(response => {
-        this.results = response.data;
+        this.results = response.data.results;
       })
       .catch(function (error) {
     console.log(error);
@@ -45,9 +46,7 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.rhymesaurus {
-  font-size: 1.4rem;
-}
+
 input[type="text"]{
   border-top: none;
   border-left: none;
@@ -85,5 +84,14 @@ ul.results {
   min-height: 100px;
   color: #fff;
   background: rgba(0,0,0,0.7);
+}
+ul.errors {
+  list-style-type: none;
+}
+.errors li {
+  border: 1px solid red;
+  color: red;
+  padding: 0.5rem;
+  margin: 10px 0;
 }
 </style>
