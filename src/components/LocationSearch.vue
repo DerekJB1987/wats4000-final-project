@@ -10,7 +10,9 @@
         <p>{{results[key]}}</p>
       </li>
     </ul>
-    <p>This API is attributed to sunrise-sunset.org located at <a href="https://sunrise-sunset.org/api">Website</a></p>
+      <p>This API is attributed to sunrise-sunset.org located at <a href="https://sunrise-sunset.org/">sunrise-sunset.org</a></p>
+    <h4>Lat/Long Tool</h4>
+      <p>Here is a link to a helpful tool to retrieve geo coordinates by location: <a href="https://www.gps-coordinates.net/">Geo-coordinates Search</a></p>
   </div>
 </template>
 

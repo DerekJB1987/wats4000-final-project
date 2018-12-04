@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Sol: Rise and Fall of the Sun</h1>
+    <h1>Sundial</h1>
     <router-view/>
   </div>
 </template>
