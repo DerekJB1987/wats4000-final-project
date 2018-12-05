@@ -6,7 +6,6 @@
       <router-link v-bind:to="'/'">Sundial</router-link>
 
     </p>
-    <h2>Location Search</h2>
 
     <form v-on:submit.prevent="getLocation">
       <p>Enter a latitude:

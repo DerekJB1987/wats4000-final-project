@@ -13,7 +13,7 @@ export default new Router({
       component: Sundial
     },
     {
-      path: '/',
+      path: '/locationsearch',
       name: 'LocationSearch',
       component: LocationSearch
     }
