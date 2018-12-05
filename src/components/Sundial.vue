@@ -7,6 +7,7 @@
 
     </p>
     <h2>Location Search</h2>
+
     <form v-on:submit.prevent="getLocation">
       <p>Enter a latitude:
         <input type="text" v-model="lat" placeholder="47.606209"> and longitude:
@@ -23,7 +24,7 @@
       </li>
     </ul>
     <p>This API is attributed to sunrise-sunset.org located at
-      <a href="https://sunrise-sunset.org/">sunrise-sunset.org</a>
+      <a href="https://sunrise-sunset.org/" target="_blank">sunrise-sunset.org</a>
     </p>
   </div>
 </template>
@@ -63,6 +64,10 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.sundial {
+  font-size: 1.4rem;
+}
+
 input[type="text"] {
   border-top: none;
   border-left: none;
