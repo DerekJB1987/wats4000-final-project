@@ -1,53 +1,16 @@
 <template>
-  <div>
+  <div class="locationsearch">
+    <p>
+      <router-link v-bind:to="'locationsearch'">Location Search</router-link>
+      
+      <router-link v-bind:to="'/'">Sundial</router-link>
+    </p>
+
     <h2>Location Search</h2>
-    <form v-on:submit.prevent="getLocation">
-        <p>Enter a latitude: <input type="text" v-model="lat" placeholder="47.606209"> and longitude: <input type="text" v-model="lng" placeholder="-122.332069"> to find your sunrise and sunset times. <button type="submit">Search</button></p>
-    </form>
-    <ul v-if="results" class="results">
-      <li v-for="key in keys" class="item">
-        <p><strong>{{key}}</strong></p>
-        <p>{{results[key]}}</p>
-      </li>
-    </ul>
-      <p>This API is attributed to sunrise-sunset.org located at <a href="https://sunrise-sunset.org/">sunrise-sunset.org</a></p>
-    <h4>Lat/Long Tool</h4>
-      <p>Here is a link to a helpful tool to retrieve geo coordinates by location: <a href="https://www.gps-coordinates.net/">Geo-coordinates Search</a></p>
+      <p>A helpful resource to get geo coordinates is located at <a href="https://www.gps-coordinates.net/">GPS-coordinates.net</a></p>
   </div>
 </template>
 
-<script>
-import axios from 'axios';
-export default {
-  name: 'LocationSearch',
-  data () {
-    return {
-      results: null,
-      lat: "47.606209",
-      lng: "-122.332069",
-      keys: []
-    }
-  },
-  methods: {
-    getLocation: function(){
-      console.log("hello")
-      axios.get('https://api.sunrise-sunset.org/json', {
-        params: {
-          lat: this.lat,
-          lng: this.lng
-        }
-      })
-      .then(response => {
-        this.results = response.data.results;
-        this.keys = Object.keys(this.results)
-      })
-      .catch(function (error) {
-    console.log(error);
-      });
-    }
-  }
-}
-</script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
