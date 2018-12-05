@@ -7,7 +7,7 @@
     </p>
 
     <h2>Location Search</h2>
-      <p>A helpful resource to get geo coordinates is located at <a href="https://www.gps-coordinates.net/">GPS-coordinates.net</a></p>
+      <p>A helpful resource to get geo coordinates is located at <a href="https://www.gps-coordinates.net/" target="_blank">GPS-coordinates.net</a></p>
   </div>
 </template>
 
