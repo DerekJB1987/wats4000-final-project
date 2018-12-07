@@ -101,7 +101,7 @@ ul.results {
   margin: 10px;
   border: solid 1px #333;
   padding: 0.5rem;
-  width: 200px;
+  width: 300px;
   min-height: 100px;
   color: #fff;
   background: rgba(0, 0, 0, 0.7);

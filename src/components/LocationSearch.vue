@@ -4,6 +4,7 @@
       <router-link v-bind:to="'locationsearch'">Location Search</router-link>
       
       <router-link v-bind:to="'/'">Sundial</router-link>
+
     </p>
 
     <h2>Location Search</h2>

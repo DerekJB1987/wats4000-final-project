@@ -14,7 +14,7 @@ export default new Router({
     },
     {
       path: '/locationsearch',
-      name: 'LocationSearch',
+      name: 'LocationsSearch',
       component: LocationSearch
     }
   ]
