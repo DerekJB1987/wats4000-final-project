@@ -54,6 +54,7 @@ export default {
           this.results = response.data.results;
           this.keys = Object.keys(this.results);
           console.log('times')
+          this.results = moment().local();
         })
         .catch(function(error) {
           console.log(error);
