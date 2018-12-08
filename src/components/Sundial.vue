@@ -53,6 +53,7 @@ export default {
         .then(response => {
           this.results = response.data.results;
           this.keys = Object.keys(this.results);
+          console.log('times')
         })
         .catch(function(error) {
           console.log(error);

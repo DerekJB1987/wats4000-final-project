@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import moment from 'moment-timezone'
 
 Vue.config.productionTip = false
 
@@ -12,4 +13,7 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
+})
+Vue.use(VueMoment, {
+  moment,
 })
