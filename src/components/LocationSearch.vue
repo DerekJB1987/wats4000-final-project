@@ -3,7 +3,7 @@
     <p>
       <router-link v-bind:to="'locationsearch'">Location Search</router-link>
       
-      <router-link v-bind:to="'/'">Sundial</router-link>
+      <router-link v-bind:to="'/'">Sun Times</router-link>
 
     </p>
 

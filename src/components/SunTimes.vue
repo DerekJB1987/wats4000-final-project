@@ -1,9 +1,9 @@
 <template>
-  <div class="sundial">
+  <div class="suntimes">
     <p>
       <router-link v-bind:to="'locationsearch'">Location Search</router-link>
 
-      <router-link v-bind:to="'/'">Sundial</router-link>
+      <router-link v-bind:to="'/'">Sun Times</router-link>
 
     </p>
 
@@ -20,9 +20,9 @@
           <strong>{{key}}</strong>
         </p>
         <p>{{results[key]}}</p>
+        <p>{{results[key] | moment.utc('h:mm:ss a').local().format(' HH:mm:ss a')}}</p>
       </li>
     </ul>
-    <span>{{ someDate | moment("dddd, MMMM Do YYYY, h:mm:ss a") }}</span>
     <p>This API is attributed to sunrise-sunset.org located at
       <a href="https://sunrise-sunset.org/" target="_blank">sunrise-sunset.org</a>
     </p>
@@ -32,7 +32,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "Sundial",
+  name: "Suntimes",
   data() {
     return {
       results: null,

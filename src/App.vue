@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Sun Itinerary</h1>
+    <h1>Sun Times</h1>
     <router-view/>
   </div>
 </template>

@@ -2,9 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
-import VueMoment from 'vue-moment'
-import moment from 'moment-timezone'
+import router from './router';
 
 Vue.config.productionTip = false
 
@@ -15,6 +13,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-Vue.use(VueMoment, {
-  moment,
-})
+Vue.use(require('vue-moment'));
