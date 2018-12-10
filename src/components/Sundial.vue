@@ -22,6 +22,7 @@
         <p>{{results[key]}}</p>
       </li>
     </ul>
+    <span>{{ someDate | moment("dddd, MMMM Do YYYY, h:mm:ss a") }}</span>
     <p>This API is attributed to sunrise-sunset.org located at
       <a href="https://sunrise-sunset.org/" target="_blank">sunrise-sunset.org</a>
     </p>
@@ -54,7 +55,6 @@ export default {
           this.results = response.data.results;
           this.keys = Object.keys(this.results);
           console.log('times')
-          this.results = moment().local();
         })
         .catch(function(error) {
           console.log(error);
