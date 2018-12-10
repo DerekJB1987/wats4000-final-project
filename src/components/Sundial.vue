@@ -19,10 +19,9 @@
         <p>
           <strong>{{key}}</strong>
         </p>
-        <p>{{results[key]}}</p>
+        <p>{{results[key] | moment.utc('h:mm:ss a').local().format(' HH:mm:ss a')}}</p>
       </li>
     </ul>
-    <span>{{ someDate | moment("dddd, MMMM Do YYYY, h:mm:ss a") }}</span>
     <p>This API is attributed to sunrise-sunset.org located at
       <a href="https://sunrise-sunset.org/" target="_blank">sunrise-sunset.org</a>
     </p>
@@ -31,6 +30,7 @@
 
 <script>
 import axios from "axios";
+import moment from 'moment-timezone'
 export default {
   name: "Sundial",
   data() {
