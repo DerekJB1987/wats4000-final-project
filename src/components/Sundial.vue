@@ -9,31 +9,46 @@
 
     <form v-on:submit.prevent="getLocation">
       <p>Enter a latitude:
-        <input type="text" v-model="lat" placeholder="47.606209"> and longitude:
-        <input type="text" v-model="lng" placeholder="-122.332069"> to find your sunrise and sunset times.
+        <input
+          type="text"
+          v-model="lat"
+          placeholder="47.606209"
+        > and longitude:
+        <input
+          type="text"
+          v-model="lng"
+          placeholder="-122.332069"
+        > to find your sunrise and sunset times.
         <button type="submit">Search</button>
       </p>
     </form>
-    <ul v-if="results" class="results">
-      <li v-for="key in keys" class="item">
+    <ul
+      v-if="results"
+      class="results"
+    >
+      <li v-for="(key,index) in keys" :key="index"  class="item" >
         <p>
           <strong>{{key}}</strong>
         </p>
-        <p>{{results[key] | moment.utc('h:mm:ss a').local().format(' HH:mm:ss a')}}</p>
+        <p>{{toLocalTZ(results[key])}}</p>
       </li>
     </ul>
     <p>This API is attributed to sunrise-sunset.org located at
-      <a href="https://sunrise-sunset.org/" target="_blank">sunrise-sunset.org</a>
+      <a
+        href="https://sunrise-sunset.org/"
+        target="_blank"
+      >sunrise-sunset.org</a>
     </p>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import moment from 'moment-timezone'
+
+
 export default {
   name: "Sundial",
-  data() {
+  data () {
     return {
       results: null,
       lat: "47.606209",
@@ -42,7 +57,7 @@ export default {
     };
   },
   methods: {
-    getLocation: function() {
+    getLocation: function () {
       console.log("hello");
       axios
         .get("https://api.sunrise-sunset.org/json", {
@@ -56,9 +71,20 @@ export default {
           this.keys = Object.keys(this.results);
           console.log('times')
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
+    },
+    toLocalTZ: function (t) {
+      let hms = t.split(' ')[0].split(':');
+      let ampm = t.split(' ')[1];
+      let utcDay = this.$moment.utc(new Date());//.format('D MMM, YYYY')
+      utcDay = utcDay.set({
+           'hour' : hms[0],
+           'minute'  : hms[1], 
+           'second' : hms[2]
+        });
+      return utcDay.local().format('hh:mm:ss')
     }
   }
 };

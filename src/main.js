@@ -7,6 +7,9 @@ import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
 
 Vue.config.productionTip = false
+Vue.use(VueMoment, {
+  moment,
+})
 
 /* eslint-disable no-new */
 new Vue({
@@ -15,6 +18,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-Vue.use(VueMoment, {
-  moment,
-})
+
