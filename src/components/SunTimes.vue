@@ -61,14 +61,15 @@ export default {
     },
     toLocalTZ: function (t) {
       let hms = t.split('')[0].split(':');
-      let ampm = t.split('')[1];
+      let ampm = t.split(' ')[1];
+      let hour = new Date();//format('')
       let utcDay = this.$moment.utc(new Date());//format('D MMM,YYYY')
         utcDay = utcDay.set({
           'hour': hms[0],
           'minute': hms[1],
           'second': hms[2]
         });
-        return utcDay.local().format('hh:mm:ss A')
+        return utcDay.local().format('h:mm:ss')
     }
   }
 };
