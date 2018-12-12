@@ -1,6 +1,11 @@
 # wats4000-final-project
 
 > A Vue.js project
+This project was intended to challenge the student to build a single page application using a JavaScript application framework. Your application should allow the user to submit some information and then fetch data from a third-party API. This project is a culmination of all the course outcomes: Development Tools, JavaScript Applications, and Software Architecture.
+
+I selected the sunrise-sunset.org API that doesn't require an API key to import the times for a location determined by the latitude and longitude coordinates provided by the user. 
+
+The API returns the following times: twilight start, sunrise, sunset, twilight end, day length, solar noon, start and end times for both nautical twilight and astronomical twilight.
 
 ## Build Setup
 
