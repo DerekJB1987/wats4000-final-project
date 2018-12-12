@@ -35,8 +35,8 @@ export default {
   data() {
     return {
       results: null,
-      lat: "47.606209",
-      lng: "-122.332069",
+      lat: "",
+      lng: "",
       keys: []
     };
   },
