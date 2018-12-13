@@ -47,7 +47,8 @@ export default {
         .get("https://api.sunrise-sunset.org/json", {
           params: {
             lat: this.lat,
-            lng: this.lng
+            lng: this.lng,
+            formatted: 0
           }
         })
         .then(response => {
@@ -60,16 +61,8 @@ export default {
         });
     },
     toLocalTZ: function (t) {
-      let hms = t.split('')[0].split(':');
-      let ampm = t.split(' ')[1];
-      let hour = new Date();//format('')
-      let utcDay = this.$moment.utc(new Date());//format('D MMM,YYYY')
-        utcDay = utcDay.set({
-          'hour': hms[0],
-          'minute': hms[1],
-          'second': hms[2]
-        });
-        return utcDay.local().format('h:mm:ss')
+      let utcDay = this.$moment.utc(t);
+      return typeof t === "number" ? `${(t/3600).toFixed(2)} hours` : utcDay.local().format('hh:mm:ss A');
     }
   }
 };
@@ -116,8 +109,8 @@ ul.results {
   padding: 0.5rem;
   width: 300px;
   min-height: 100px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.7);
+  color: #000000;
+  background: #fbac13
 }
 ul.errors {
   list-style-type: none;
